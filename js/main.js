@@ -32,17 +32,19 @@ function cadaMateria (nombreMateria, salidaMateria){
             alert("numero incorrecto de examenes ingresado");
             break;
     }
-
-    resultado = promedio(nota1,nota2,nota3);
-
-    let aprobacion;
-    if (resultado > 4) {
-        aprobacion = "aprobado";
-    } else {
-        aprobacion = "desaprobado";
+    if ((nota1 <= 10)&&(nota2 <= 10)&&(nota3 <= 10)){
+        resultado = promedio(nota1,nota2,nota3);
+        let aprobacion;
+        if (resultado > 4) {
+            aprobacion = "aprobado";
+        } else {
+            aprobacion = "desaprobado";
+        }
+        salidaMateria = salidaMateria + "En la materia " + nombreMateria + " su promedio es " + resultado.toFixed(2) + ", por lo tanto está " + aprobacion +"." + "\n";
     }
-
-    salidaMateria = salidaMateria + "En la materia " + nombreMateria + " su promedio es " + resultado.toFixed(2) + ", por lo tanto está " + aprobacion +"." + "\n";
+    else{
+        salidaMateria = "notas ingresadas incorrectas";
+    }
     return salidaMateria;
 }
 
